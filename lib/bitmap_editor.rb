@@ -1,4 +1,10 @@
+require 'colorize'
+
 class BitmapEditor
+
+  def initialize(command = Command.new)
+    @command = command
+  end
 
   def run
     @running = true
@@ -12,7 +18,7 @@ class BitmapEditor
         when 'X'
           exit_console
         else
-          puts 'unrecognised command :('
+          @command.run(input)
       end
     end
   end
